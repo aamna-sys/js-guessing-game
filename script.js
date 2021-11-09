@@ -15,5 +15,25 @@ setTimeout(function () {
     }
     
     let attempts = 1;
-
+    
+    while (true) {
+        let instruction = "";
+        if (guess < target) {
+            instruction = "low";
+        }
+        else if (guess > target) {
+            instruction = "high";
+        }
+        else {
+            alert("Open the console to see the results.")
+            console.log(`You WON!!! The secret number was ${target}. It took you ${attempts} tries to guess it.`)
+            break;
+        }
+    
+        guess = parseInt(prompt(`Too ${instruction}. Enter again:`));
+        while (!guess || guess < 1 || guess > max) {
+            guess = parseInt(prompt(`Enter a valid guess in range 1 - ${max}:`));
+        }
+        attempts++;
+    }
   }, 200);
