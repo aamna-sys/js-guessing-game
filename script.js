@@ -7,4 +7,13 @@ setTimeout(function () {
     }
     console.log(`Playing range: 1 to ${max}`);
     
+    const target = Math.floor(Math.random() * max) + 1; //generating a random b/w 1 and max
+    
+    let guess = parseInt(prompt("Enter your guess:"));
+    while (!guess || guess < 1 || guess > max) {
+        guess = parseInt(prompt(`Enter a valid guess in range 1 - ${max}:`));
+    }
+    
+    let attempts = 1;
+
   }, 200);
